@@ -26,4 +26,6 @@ public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
             "WHERE CAST(e.hireDate as string) LIKE CONCAT(:hireDateStr,'%') " +
             "ORDER BY e.hireDate DESC")
     List<Employee> findByHireDateStartingWith(String hireDateStr);
+
+
 }

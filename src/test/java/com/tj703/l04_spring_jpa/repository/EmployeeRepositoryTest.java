@@ -1,7 +1,6 @@
-package com.tj703.l04_spring_jpa;
+package com.tj703.l04_spring_jpa.repository;
 
 import com.tj703.l04_spring_jpa.entity.Employee;
-import com.tj703.l04_spring_jpa.repository.EmployeeRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
