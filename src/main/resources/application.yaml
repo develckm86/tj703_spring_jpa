@@ -1,4 +1,5 @@
-# sass ?? tab(????)? ????? ?? ?
+# sass 처럼 tab(들여쓰기)이 종속관계를 나타 냄
+# 한글깨짐 방지하려면 인텔리제이 하단에 ISO-8859-1 를 UTF-8로 변경하세요
 spring:
   application:
     name: l04_spring_jpa
