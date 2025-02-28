@@ -1,0 +1,12 @@
+# sass ?? tab(????)? ????? ?? ?
+spring:
+  application:
+    name: l04_spring_jpa
+  datasource:
+    username: ${mysql.user}
+    password: ${mysql.pw}
+    url: jdbc:mysql://localhost:3306/employees
+    driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  port: 5555
+
