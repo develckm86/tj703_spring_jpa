@@ -18,15 +18,16 @@ class EmployeeRepositoryTest {
     private EmployeeRepository employeeRepository;
 
     @Test
+    @Transactional
     public void findAll() {
-        Page<Employee>  empPage=(employeeRepository.findAll(Pageable.ofSize(100)));
+        Page<Employee>  empPage=(employeeRepository.findAll(Pageable.ofSize(5)));
         System.out.println(empPage.getContent());
         System.out.println(empPage.getPageable());
     }
     @Test
     @Transactional
     public void findById() {
-        System.out.println(employeeRepository.findById(10001));
+        System.out.println(employeeRepository.findById(10010));
     }
 
     @Test

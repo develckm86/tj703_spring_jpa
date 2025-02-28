@@ -1,5 +1,6 @@
 package com.tj703.l04_spring_jpa.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -37,5 +38,18 @@ public class Employee {
     //Salary에서 무조건 OneToOne  ManyToOne 을 꼭!! 구현하고 있어야 한다.
 
     @OneToMany( mappedBy = "employee", fetch = FetchType.LAZY) //Salary.employee
-    List<Salary> salaries;
+    @ToString.Exclude
+    @JsonBackReference
+    private List<Salary> salaries;
+
+    @OneToMany(mappedBy = "employee",fetch = FetchType.LAZY)
+    @ToString.Exclude
+    @JsonBackReference
+    private List<Title> titles;
+
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
+    @ToString.Exclude
+    @JsonBackReference
+    private List<DeptEmp> deptEmps;
+
 }
