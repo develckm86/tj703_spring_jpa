@@ -15,14 +15,14 @@ public class DeptEmp {
     @Column(name = "emp_no")
     private int empNo;
     @Id
-    @Column(name = "dept_no", length = 4)
+    @Column(name = "dept_no", columnDefinition = "CHAR(4)")
     private String deptNo;
     @Column(name = "from_date")
     private LocalDate fromDate;
     @Column(name = "to_date")
     private LocalDate toDate;
     @ManyToOne
-    @JoinColumn(name = "dept_no")
+    @JoinColumn(name = "dept_no", insertable = false, updatable = false)
     private Department department;
     @ManyToOne
     @JoinColumn(name= "emp_no")

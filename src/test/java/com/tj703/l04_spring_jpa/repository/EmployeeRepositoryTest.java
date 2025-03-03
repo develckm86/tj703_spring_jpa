@@ -50,8 +50,14 @@ class EmployeeRepositoryTest {
 
     @Test
     void findByHireDateStartingWith() {
-        List<Employee> empList= employeeRepository.findByHireDateStartingWith("1986");
+        List<Employee> empList= employeeRepository. findByHireDateStartingWith("1986");
         System.out.println(empList.size());
         // Operand of 'like' is of type 'java.time.LocalDate' which is not a string (its JDBC type code is not string-like)
+    }
+
+    @Test
+    @Transactional
+    void findWithSalariesByEmpNo() {
+        System.out.println(employeeRepository.findWithSalariesById(10010));
     }
 }

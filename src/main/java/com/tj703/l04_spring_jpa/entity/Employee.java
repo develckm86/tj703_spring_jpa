@@ -5,8 +5,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.BatchSize;
 
 import java.time.LocalDate;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -37,19 +39,21 @@ public class Employee {
     private LocalDate hireDate;
     //Salary에서 무조건 OneToOne  ManyToOne 을 꼭!! 구현하고 있어야 한다.
 
-    @OneToMany( mappedBy = "employee", fetch = FetchType.LAZY) //Salary.employee
+    @OneToMany( mappedBy = "employee", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true) //Salary.employee
     @ToString.Exclude
     @JsonBackReference
-    private List<Salary> salaries;
+    @OrderBy(value = "salary desc")
+    private Set<Salary> salaries=new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "employee",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
     @ToString.Exclude
     @JsonBackReference
-    private List<Title> titles;
+    private Set<DeptEmp> deptEmps=new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "employee",fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, orphanRemoval = true)
     @ToString.Exclude
     @JsonBackReference
-    private List<DeptEmp> deptEmps;
+    private Set<Title> titles=new LinkedHashSet<>();
+
 
 }

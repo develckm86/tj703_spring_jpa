@@ -11,7 +11,7 @@ import lombok.Data;
 @Table(name = "departments")
 public class Department {
     @Id
-    @Column(name = "dept_no",length = 4)
+    @Column(name = "dept_no",columnDefinition = "CHAR(4)")
     String deptNo;
     @Column(name= "dept_name",length = 40)
     String deptName;

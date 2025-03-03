@@ -12,6 +12,6 @@ class DeptEmpRepositoryTest {
     private DeptEmpRepository deptEmpRepository;
     @Test
     void findByEmpNo() {
-        System.out.println(deptEmpRepository.findByEmpNo(10010));
+        System.out.println(deptEmpRepository.findByEmpNo(10010  ));
     }
 }

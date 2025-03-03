@@ -4,9 +4,11 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
 @Embeddable
-public class DeptEmpId {
+public class DeptEmpId implements Serializable {
     @Column(name = "emp_no")
     private int empNo;
     @Column(name = "dept_no", length = 4)
