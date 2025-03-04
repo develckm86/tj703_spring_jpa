@@ -1,6 +1,7 @@
 package com.tj703.l04_spring_jpa.repository;
 
 import com.tj703.l04_spring_jpa.entity.Employee;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -27,5 +28,7 @@ public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
             "ORDER BY e.hireDate DESC")
     List<Employee> findByHireDateStartingWith(String hireDateStr);
 
-
+    //@OneToMany 나 @ManyToOne 으로 조회를 정의했을 때 강제로 조인하는 방법
+    @EntityGraph(attributePaths = {"salaries","titles","deptEmps","deptEmps.department"})
+    Employee findWithSalaryById(int id);
 }

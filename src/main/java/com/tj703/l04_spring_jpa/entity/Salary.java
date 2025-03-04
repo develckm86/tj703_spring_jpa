@@ -31,7 +31,9 @@ public class Salary {
 
     @ManyToOne(fetch = FetchType.LAZY)
     //@MapsId("empNo")
-    @JoinColumn(name = "emp_no")
+    @JoinColumn(name = "emp_no",insertable = false, updatable = false)
+    //insertable = false, updatable = false : 영속성컨텍스테에 등록된 employee도 같이 저장하거나 수정하려 할때 제외
+
     @ToString.Exclude
     @JsonBackReference
     private Employee employee;

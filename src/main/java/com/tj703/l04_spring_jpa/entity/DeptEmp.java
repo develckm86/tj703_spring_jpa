@@ -21,11 +21,14 @@ public class DeptEmp {
     private LocalDate fromDate;
     @Column(name = "to_date")
     private LocalDate toDate;
-    @ManyToOne
-    @JoinColumn(name = "dept_no")
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "dept_no",insertable = false, updatable = false)
     private Department department;
-    @ManyToOne
-    @JoinColumn(name= "emp_no")
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name= "emp_no",insertable = false, updatable = false)
     @ToString.Exclude
     private Employee employee;
 }

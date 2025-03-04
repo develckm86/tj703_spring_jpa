@@ -25,7 +25,7 @@ public class Title {
     LocalDate toDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "emp_no")
+    @JoinColumn(name = "emp_no",insertable = false, updatable = false)
     @ToString.Exclude
     @JsonBackReference//객체를 문자열 json으로 바꾸는 것을 하지마라 {"empNo":10004, "firstName":"jone"...}
     private Employee employee;

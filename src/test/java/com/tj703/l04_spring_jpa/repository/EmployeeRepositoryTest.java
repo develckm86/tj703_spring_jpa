@@ -54,4 +54,11 @@ class EmployeeRepositoryTest {
         System.out.println(empList.size());
         // Operand of 'like' is of type 'java.time.LocalDate' which is not a string (its JDBC type code is not string-like)
     }
+
+    @Test
+    @Transactional
+    void findWithSalaryById() {
+        //salary가 FetchType.Lazy  지정했기때문에 조인하지 않음
+        System.out.println(employeeRepository.findWithSalaryById(10010));
+    }
 }
